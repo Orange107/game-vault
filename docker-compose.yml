@@ -1,0 +1,14 @@
+services:
+  gamenote:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gamenote
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8787:8787"
+    environment:
+      PORT: 8787
+      DB_PATH: /app/data/game-vault.db
+    volumes:
+      - ./data:/app/data
